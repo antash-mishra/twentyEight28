@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://threejs.org/editor/ -->
+<html lang="en" data-darkreader-mode="dynamic" data-darkreader-scheme="dark" data-darkreader-proxy-injected="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}
+[data-darkreader-inline-border-short] {
+  border: var(--darkreader-inline-border-short) !important;
+}
+[data-darkreader-inline-border-bottom-short] {
+  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
+}
+[data-darkreader-inline-border-left-short] {
+  border-left: var(--darkreader-inline-border-left-short) !important;
+}
+[data-darkreader-inline-border-right-short] {
+  border-right: var(--darkreader-inline-border-right-short) !important;
+}
+[data-darkreader-inline-border-top-short] {
+  border-top: var(--darkreader-inline-border-top-short) !important;
+}
+[data-darkreader-inline-invert] {
+    filter: invert(100%) hue-rotate(180deg);
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: var(--darkreader-background-ffffff, #181a1b);
+   --darkreader-neutral-text: var(--darkreader-text-000000, #e8e6e3);
+   --darkreader-selection-background: var(--darkreader-background-0060d4, #004daa);
+   --darkreader-selection-text: var(--darkreader-text-ffffff, #e8e6e3);
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">@layer {
+html {
+    background-color: var(--darkreader-background-ffffff, #181a1b) !important;
+}
+html {
+    color-scheme: dark !important;
+}
+iframe {
+    color-scheme: dark !important;
+}
+html, body {
+    background-color: var(--darkreader-background-ffffff, #181a1b);
+}
+html, body {
+    border-color: var(--darkreader-border-4c4c4c, #736b5e);
+    color: var(--darkreader-text-000000, #e8e6e3);
+}
+a {
+    color: var(--darkreader-text-0040ff, #3391ff);
+}
+table {
+    border-color: var(--darkreader-border-808080, #545b5e);
+}
+mark {
+    color: var(--darkreader-text-000000, #e8e6e3);
+}
+::placeholder {
+    color: var(--darkreader-text-a9a9a9, #b2aba1);
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: var(--darkreader-background-faffbd, #404400) !important;
+    color: var(--darkreader-text-000000, #e8e6e3) !important;
+}
+::selection {
+    background-color: var(--darkreader-background-0060d4, #004daa) !important;
+    color: var(--darkreader-text-ffffff, #e8e6e3) !important;
+}
+::-moz-selection {
+    background-color: var(--darkreader-background-0060d4, #004daa) !important;
+    color: var(--darkreader-text-ffffff, #e8e6e3) !important;
+}
+}</style>
+		<title>three.js editor</title>
+		
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="apple-touch-icon" href="https://threejs.org/editor/images/icon.png">
+		<link rel="manifest" href="https://threejs.org/editor/manifest.json">
+		<link rel="shortcut icon" href="https://threejs.org/files/favicon_white.ico" media="(prefers-color-scheme: dark)">
+		<link rel="shortcut icon" href="https://threejs.org/files/favicon.ico" media="(prefers-color-scheme: light)">
+	<meta name="darkreader" content="4fe331c81eb54069a05ffa0b24df1e87"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: var(--darkreader-background-ffd76e, #684b00) !important;
+    border-color: var(--darkreader-background-c59d00, #9e7e00) !important;
+    color: var(--darkreader-text-302505, #d7d4cf) !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: var(--darkreader-background-add8e6, #1b4958) !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: var(--darkreader-background-cfecf5, #0f3a47) !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: var(--darkreader-background-f5f5f5, #1e2021) !important;
+}
+.tou-uknfeu {
+    background-color: var(--darkreader-background-faedda, #432c09) !important;
+}
+.tou-6i3zyv {
+    background-color: var(--darkreader-background-85c3d8, #245d70) !important;
+}
+div.mermaid-viewer-control-panel .btn {
+    background-color: var(--darkreader-neutral-background);
+    fill: var(--darkreader-neutral-text);
+}
+svg g rect.er {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+    fill: var(--darkreader-selection-background);
+    fill-opacity: 0.8 !important;
+}
+svg rect.er.relationshipLabelBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect,
+svg g g.nodes polygon {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+    fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0,
+svg line.messageLine1 {
+    stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+    fill: var(--darkreader-neutral-background) !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    background-color: white !important;
+    padding-top: 1rem;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+select option {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+body#tumblr {
+    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
+    --darkreader-bg--white: 23, 23, 23 !important;
+    --darkreader-text--black: 228, 224, 218 !important;
+}
+:host {
+    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
+    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
+    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
+    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
+    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+:host([_floating]) .d2l-floating-buttons-container {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
+    opacity: 0.88 !important;
+}
+d2l-card {
+    background: var(--darkreader-neutral-background) !important;
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+d2l-dropdown-content > div,
+d2l-menu-item {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-radius: 10px !important;
+}
+d2l-empty-state-simple {
+    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-button-filter > ul > li > a.vui-button {
+    border-color: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-label-text:has(.d2l-button-subtle-content):hover,
+.d2l-label-text:has(.d2l-button-subtle-content):focus,
+.d2l-label-text:has(.d2l-button-subtle-content):active {
+    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-navigation-centerer {
+    color: inherit !important;
+}
+.d2l-tabs-layout {
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+.d2l-input,
+.d2l-calendar-date,
+.d2l-htmleditor-container {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-collapsible-panel {
+    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+    border-radius: 0.4rem !important;
+}
+.d2l-collapsible-panel-divider {
+    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-w2d-flex {
+    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-collapsible-panel scrolled,
+.d2l-collapsible-panel-header,
+.d2l-w2d-collection-fixed {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-loading-spinner-bg {
+    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-loading-spinner-bg-stroke {
+    stroke: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-loading-spinner-wrapper svg path,
+.d2l-loading-spinner-wrapper svg circle {
+    fill: var(--darkreader-neutral-background) !important;
+}
+embed[type="application/pdf"][src="about:blank"] { filter: invert(100%) contrast(90%); }</style></head>
+	<body>
+
+		<script async="" src="./three.js editor_files/js"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-JPPX9MZGZ4');
+		</script>
+
+		<link rel="stylesheet" href="./three.js editor_files/main.css"><style class="darkreader darkreader--sync" media="screen"></style>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.module.js",
+					"three/addons/": "../examples/jsm/",
+
+					"three/examples/": "../examples/",
+					"three-gpu-pathtracer": "https://cdn.jsdelivr.net/npm/three-gpu-pathtracer@0.0.23/build/index.module.js",
+					"three-mesh-bvh": "https://cdn.jsdelivr.net/npm/three-mesh-bvh@0.7.4/build/index.module.js"
+				}
+			}
+		</script>
+
+		<script src="./three.js editor_files/draco_encoder.js"></script>
+
+		<link rel="stylesheet" href="./three.js editor_files/codemirror.css"><style class="darkreader darkreader--sync" media="screen"></style>
+		<link rel="stylesheet" href="./three.js editor_files/monokai.css"><style class="darkreader darkreader--sync" media="screen"></style>
+		<script src="./three.js editor_files/codemirror.js"></script>
+		<script src="./three.js editor_files/javascript.js"></script>
+		<script src="./three.js editor_files/glsl.js"></script>
+
+		<script src="./three.js editor_files/esprima.js"></script>
+		<script src="./three.js editor_files/jsonlint.js"></script>
+
+		<script src="./three.js editor_files/ffmpeg.min.js"></script>
+
+		<link rel="stylesheet" href="./three.js editor_files/dialog.css"><style class="darkreader darkreader--sync" media="screen"></style>
+		<link rel="stylesheet" href="./three.js editor_files/show-hint.css"><style class="darkreader darkreader--sync" media="screen"></style>
+		<link rel="stylesheet" href="./three.js editor_files/tern.css"><style class="darkreader darkreader--sync" media="screen"></style>
+
+		<script src="./three.js editor_files/dialog.js"></script>
+		<script src="./three.js editor_files/show-hint.js"></script>
+		<script src="./three.js editor_files/tern.js"></script>
+		<script src="./three.js editor_files/acorn.js"></script>
+		<script src="./three.js editor_files/acorn_loose.js"></script>
+		<script src="./three.js editor_files/walk.js"></script>
+		<script src="./three.js editor_files/polyfill.js"></script>
+		<script src="./three.js editor_files/signal.js"></script>
+		<script src="./three.js editor_files/tern(1).js"></script>
+		<script src="./three.js editor_files/def.js"></script>
+		<script src="./three.js editor_files/comment.js"></script>
+		<script src="./three.js editor_files/infer.js"></script>
+		<script src="./three.js editor_files/doc_comment.js"></script>
+		<script src="./three.js editor_files/threejs.js"></script>
+		<script src="./three.js editor_files/signals.min.js"></script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+
+			import { Editor } from './js/Editor.js';
+			import { Viewport } from './js/Viewport.js';
+			import { Toolbar } from './js/Toolbar.js';
+			import { Script } from './js/Script.js';
+			import { Player } from './js/Player.js';
+			import { Sidebar } from './js/Sidebar.js';
+			import { Menubar } from './js/Menubar.js';
+			import { Resizer } from './js/Resizer.js';
+
+			window.URL = window.URL || window.webkitURL;
+			window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
+
+			//
+
+			const editor = new Editor();
+
+			window.editor = editor; // Expose editor to Console
+			window.THREE = THREE; // Expose THREE to APP Scripts and Console
+
+			const viewport = new Viewport( editor );
+			document.body.appendChild( viewport.dom );
+
+			const toolbar = new Toolbar( editor );
+			document.body.appendChild( toolbar.dom );
+
+			const script = new Script( editor );
+			document.body.appendChild( script.dom );
+
+			const player = new Player( editor );
+			document.body.appendChild( player.dom );
+
+			const sidebar = new Sidebar( editor );
+			document.body.appendChild( sidebar.dom );
+
+			const menubar = new Menubar( editor );
+			document.body.appendChild( menubar.dom );
+
+			const resizer = new Resizer( editor );
+			document.body.appendChild( resizer.dom );
+
+			//
+
+			editor.storage.init( function () {
+
+				editor.storage.get( async function ( state ) {
+
+					if ( isLoadingFromHash ) return;
+
+					if ( state !== undefined ) {
+
+						await editor.fromJSON( state );
+
+					}
+
+					const selected = editor.config.getKey( 'selected' );
+
+					if ( selected !== undefined ) {
+
+						editor.selectByUuid( selected );
+
+					}
+
+				} );
+
+				//
+
+				let timeout;
+
+				function saveState() {
+
+					if ( editor.config.getKey( 'autosave' ) === false ) {
+
+						return;
+
+					}
+
+					clearTimeout( timeout );
+
+					timeout = setTimeout( function () {
+
+						editor.signals.savingStarted.dispatch();
+
+						timeout = setTimeout( function () {
+
+							editor.storage.set( editor.toJSON() );
+
+							editor.signals.savingFinished.dispatch();
+
+						}, 100 );
+
+					}, 1000 );
+
+				}
+
+				const signals = editor.signals;
+
+				signals.geometryChanged.add( saveState );
+				signals.objectAdded.add( saveState );
+				signals.objectChanged.add( saveState );
+				signals.objectRemoved.add( saveState );
+				signals.materialChanged.add( saveState );
+				signals.sceneBackgroundChanged.add( saveState );
+				signals.sceneEnvironmentChanged.add( saveState );
+				signals.sceneFogChanged.add( saveState );
+				signals.sceneGraphChanged.add( saveState );
+				signals.scriptChanged.add( saveState );
+				signals.historyChanged.add( saveState );
+
+			} );
+
+			//
+
+			document.addEventListener( 'dragover', function ( event ) {
+
+				event.preventDefault();
+				event.dataTransfer.dropEffect = 'copy';
+
+			} );
+
+			document.addEventListener( 'drop', function ( event ) {
+
+				event.preventDefault();
+
+				if ( event.dataTransfer.types[ 0 ] === 'text/plain' ) return; // Outliner drop
+
+				if ( event.dataTransfer.items ) {
+
+					// DataTransferItemList supports folders
+
+					editor.loader.loadItemList( event.dataTransfer.items );
+
+				} else {
+
+					editor.loader.loadFiles( event.dataTransfer.files );
+
+				}
+
+			} );
+
+			function onWindowResize() {
+
+				editor.signals.windowResize.dispatch();
+
+			}
+
+			window.addEventListener( 'resize', onWindowResize );
+
+			onWindowResize();
+
+			//
+
+			let isLoadingFromHash = false;
+			const hash = window.location.hash;
+
+			if ( hash.slice( 1, 6 ) === 'file=' ) {
+
+				const file = hash.slice( 6 );
+
+				if ( confirm( editor.strings.getKey( 'prompt/file/open' ) ) ) {
+
+					const loader = new THREE.FileLoader();
+					loader.crossOrigin = '';
+					loader.load( file, function ( text ) {
+
+						editor.clear();
+						editor.fromJSON( JSON.parse( text ) );
+
+					} );
+
+					isLoadingFromHash = true;
+
+				}
+
+			}
+
+			// ServiceWorker
+
+			if ( 'serviceWorker' in navigator ) {
+
+				try {
+
+					navigator.serviceWorker.register( 'sw.js' );
+
+				} catch ( error ) {
+
+				}
+
+			}
+
+		</script>
+	
+
+<div class="Panel" id="viewport" style="position: absolute;"><div class="Panel" style="position: absolute; right: 10px; top: 10px; color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" data-darkreader-inline-color=""><select class="Select" autocomplete="off" style="padding: 2px; margin-left: 10px; margin-right: 10px;"><option value="53ef6d83-cca4-4a34-a0dc-f187e580e2c1">Camera</option></select><select class="Select" autocomplete="off" style="padding: 2px;"><option value="realistic">realistic</option><option value="solid">solid</option><option value="normals">normals</option><option value="wireframe">wireframe</option></select></div><div class="Panel" id="info" style="position: absolute; left: 10px; bottom: 20px; font-size: 12px; color: rgb(255, 255, 255); text-transform: lowercase; --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" data-darkreader-inline-color=""><span class="Text" style="cursor: default; display: inline-block; text-align: right; width: 60px; margin-right: 6px;">12</span><span class="Text" style="cursor: default; display: inline-block;">Objects</span><br class="Break"><span class="Text" style="cursor: default; display: inline-block; text-align: right; width: 60px; margin-right: 6px;">3,830</span><span class="Text" style="cursor: default; display: inline-block;">Vertices</span><br class="Break"><span class="Text" style="cursor: default; display: inline-block; text-align: right; width: 60px; margin-right: 6px;">4,664</span><span class="Text" style="cursor: default; display: inline-block;">Triangles</span><br class="Break"><span class="Text" style="cursor: default; display: inline-block; text-align: right; width: 60px; margin-right: 6px;">1.48</span><span class="Text" style="cursor: default; display: inline-block;">Render time</span><br class="Break"><span class="Text" hidden="" style="cursor: default; display: inline-block; text-align: right; width: 60px; margin-right: 6px;">0</span><span class="Text" hidden="" style="cursor: default; display: inline-block;">Samples</span><br class="Break"></div><div class="Panel" id="viewHelper" style="position: absolute; right: 0px; bottom: 0px; height: 128px; width: 128px;"></div><canvas data-engine="three.js r175" width="1513" height="1993" style="display: block; touch-action: none; width: 1513px; height: 1993px;"></canvas></div><div class="Panel" id="toolbar"><button class="Button selected"><img title="Translate" src="./three.js editor_files/translate.svg"></button><button class="Button"><img title="Rotate" src="./three.js editor_files/rotate.svg"></button><button class="Button"><img title="Scale" src="./three.js editor_files/scale.svg"></button><input class="Checkbox" type="checkbox" title="Local"></div><div class="Panel" id="script" style="position: absolute; background-color: rgb(39, 40, 34); display: none; --darkreader-inline-bgcolor: var(--darkreader-background-272822, #1c1e1f);" data-darkreader-inline-bgcolor=""><div class="Panel" style="padding: 10px;"><span class="Text" style="cursor: default; display: inline-block; color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" data-darkreader-inline-color=""></span><svg width="32" height="32" style="position: absolute; top: 3px; right: 1px; cursor: pointer;"><path d="M 12,12 L 22,22 M 22,12 12,22" stroke="#fff" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: var(--darkreader-text-ffffff, #e8e6e3);"></path></svg></div><div class="CodeMirror cm-s-monokai" translate="no"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; min-height: 1em; outline: none; --darkreader-inline-outline: initial;" data-darkreader-inline-outline=""></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true"><div style="min-width: 1px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true"><div style="height: 100%; min-height: 1px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-width: 3px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none; --darkreader-inline-outline: initial;" data-darkreader-inline-outline=""><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"><pre class="CodeMirror-line" role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" style="display: inline-block; width: 1px; margin-right: -1px;">&nbsp;</span></span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 50px; width: 1px;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 1px;"></div></div></div></div></div><div class="Panel" id="player" style="position: absolute; display: none;"><div><canvas data-engine="three.js r175" width="0" height="0" style="display: block; width: 0px; height: 0px;"></canvas></div></div><div class="TabbedPanel" id="sidebar"><div class="Tabs"><span class="Tab selected" id="scene" style="cursor: default; display: inline-block;">Scene</span><span class="Tab" id="project" style="cursor: default; display: inline-block;">Project</span><span class="Tab" id="settings" style="cursor: default; display: inline-block;">Settings</span></div><div class="Panels"><div id="scene" style=""><span><div class="Panel" style="border-top: 0px; padding-top: 20px; --darkreader-inline-border-top: 0px;" data-darkreader-inline-border-top=""><div class="Outliner" tabindex="0" id="outliner"><div draggable="false" class="option"><span class="type Camera"></span> Camera</div><div draggable="false" class="option"><span class="type Scene"></span> Scene</div><div draggable="true" class="option" style="padding-left: 0px;"><span class="opener"></span><span class="type Object3D"></span> Group</div><div draggable="true" class="option" style="padding-left: 0px;"><span class="opener open"></span><span class="type Object3D"></span> roundtable.glb</div><div draggable="true" class="option" style="padding-left: 18px;"><span class="opener open"></span><span class="type Object3D"></span> Sketchfab_model</div><div draggable="true" class="option" style="padding-left: 36px;"><span class="opener open"></span><span class="type Object3D"></span> Collada_visual_scene_group</div><div draggable="true" class="option" style="padding-left: 54px;"><span class="opener"></span><span class="type Object3D"></span> roundtable_lo</div><div draggable="true" class="option" style="padding-left: 0px;"><span class="opener open"></span><span class="type Object3D"></span> roundtable.glb</div><div draggable="true" class="option" style="padding-left: 18px;"><span class="opener open"></span><span class="type Object3D"></span> Sketchfab_model</div><div draggable="true" class="option" style="padding-left: 36px;"><span class="opener open"></span><span class="type Object3D"></span> Collada_visual_scene_group</div><div draggable="true" class="option" style="padding-left: 54px;"><span class="opener open"></span><span class="type Object3D"></span> roundtable_lo</div><div draggable="true" class="option" style="padding-left: 72px;"><span class="opener"></span><span class="type Mesh"></span> defaultMaterial <span class="type Geometry"></span>  <span class="type Material"></span> standardSurface1_1002</div><div draggable="true" class="option" style="padding-left: 72px;"><span class="opener"></span><span class="type Mesh"></span> defaultMaterial_1 <span class="type Geometry"></span>  <span class="type Material"></span> standardSurface1_1001</div><div draggable="true" class="option active" style="padding-left: 0px;"><span class="opener"></span><span class="type Light"></span> AmbientLight</div></div><br class="Break"><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Background</span><select class="Select" autocomplete="off" style="padding: 2px; width: 150px;"><option value="None"></option><option value="Color">Color</option><option value="Texture">Texture</option><option value="Equirectangular">Equirect</option></select><input class="Color" autocomplete="off" type="color" style="width: 32px; height: 16px; border: 0px; padding: 2px; background-color: transparent; margin-left: 8px; display: none; --darkreader-inline-border-top: 0px; --darkreader-inline-border-right: 0px; --darkreader-inline-border-bottom: 0px; --darkreader-inline-border-left: 0px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" data-darkreader-inline-bgcolor=""><span style="margin-left: 8px; display: none;"><canvas width="32" height="16" title="empty" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></canvas></span><span style="margin-left: 8px; display: none;"><canvas width="32" height="16" title="empty" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></canvas></span></div><div class="Row" style="display: none; margin-left: 120px;"><select class="Select" autocomplete="off" style="padding: 2px; width: 150px;"><option value="">No Color Space</option><option value="srgb-linear">srgb-linear</option><option value="srgb">srgb</option></select></div><div class="Row" style="display: none; margin-left: 120px;"><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 40px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 40px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 40px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Environment</span><select class="Select" autocomplete="off" style="padding: 2px; width: 150px;"><option value="None"></option><option value="Background">Background</option><option value="Equirectangular">Equirect</option><option value="Room">Room</option></select><span style="margin-left: 8px; display: none;"><canvas width="32" height="16" title="empty" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></canvas></span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Fog</span><select class="Select" autocomplete="off" style="padding: 2px; width: 150px;"><option value="None"></option><option value="Fog">Linear</option><option value="FogExp2">Exponential</option></select></div><div class="Row" style="display: none; margin-left: 120px;"><input class="Color" autocomplete="off" type="color" style="width: 32px; height: 16px; border: 0px; padding: 2px; background-color: transparent; --darkreader-inline-border-top: 0px; --darkreader-inline-border-right: 0px; --darkreader-inline-border-bottom: 0px; --darkreader-inline-border-left: 0px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 40px; display: none; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 40px; display: none; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 40px; display: none; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div></div><div class="TabbedPanel" id="properties"><div class="Tabs" style="width: 350px;"><span class="Tab selected" id="objectTab" style="cursor: default; display: inline-block;">Object</span><span class="Tab" id="geometryTab" style="cursor: default; display: inline-block;" hidden="">Geometry</span><span class="Tab" id="materialTab" style="cursor: default; display: inline-block;" hidden="">Material</span><span class="Tab" id="scriptTab" style="cursor: default; display: inline-block;">Script</span></div><div class="Panels"><div id="objectTab" style=""><div class="Panel" style="border-top: 0px; padding-top: 20px; display: block; --darkreader-inline-border-top: 0px;" data-darkreader-inline-border-top=""><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Type</span><span class="Text" style="cursor: default; display: inline-block;">AmbientLight</span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">UUID</span><input class="Input" autocomplete="off" disabled="" style="padding: 2px; border: 1px solid transparent; width: 102px; font-size: 12px; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""><button class="Button" style="margin-left: 7px;">New</button></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Name</span><input class="Input" autocomplete="off" style="padding: 2px; border: 1px solid transparent; width: 150px; font-size: 12px; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Position</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 50px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 50px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 50px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Rotation</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 50px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 50px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 50px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Scale</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 50px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 50px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 50px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Fov</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Left</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Right</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Top</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Bottom</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Near</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Far</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style=""><span class="Label" style="cursor: default; display: inline-block;">Intensity</span><input class="Number" autocomplete="off" style=""></div><div class="Row" style=""><span class="Label" style="cursor: default; display: inline-block;">Color</span><input class="Color" autocomplete="off" type="color" style="width: 32px; height: 16px; border: 0px; padding: 2px; background-color: transparent; --darkreader-inline-border-top: 0px; --darkreader-inline-border-right: 0px; --darkreader-inline-border-bottom: 0px; --darkreader-inline-border-left: 0px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Ground Color</span><input class="Color" autocomplete="off" type="color" style="width: 32px; height: 16px; border: 0px; padding: 2px; background-color: transparent; --darkreader-inline-border-top: 0px; --darkreader-inline-border-right: 0px; --darkreader-inline-border-bottom: 0px; --darkreader-inline-border-left: 0px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Distance</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Angle</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Penumbra</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Decay</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Shadow</span><span style="margin-right: 4px;"><input class="Checkbox" type="checkbox"><span class="Text" style="cursor: default; display: inline-block; margin-left: 3px;">cast</span></span><span style="margin-right: 4px; display: none;"><input class="Checkbox" type="checkbox"><span class="Text" style="cursor: default; display: inline-block; margin-left: 3px;">receive</span></span></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Shadow Intensity</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Shadow Bias</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Shadow Normal Bias</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Shadow Radius</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Visible</span><input class="Checkbox" type="checkbox"></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Frustum Cull</span><input class="Checkbox" type="checkbox"></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Render Order</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 50px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">User data</span><textarea class="TextArea" spellcheck="false" autocomplete="off" style="padding: 2px; width: 150px; height: 40px; font-size: 12px; border-color: transparent; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></textarea></div><button class="Button" style="margin-left: 120px;">Export JSON</button><div style="margin-top: 20px; display: none;"><span class="Text" style="cursor: default; display: inline-block; text-transform: uppercase;">Animations</span><br class="Break"><br class="Break"><div></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Time Scale</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div></div></div></div><div id="geometryTab" style="display: none;"><div class="Panel" style="border-top: 0px; display: none; padding-top: 20px; --darkreader-inline-border-top: 0px;" data-darkreader-inline-border-top=""><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Type</span><span class="Text" style="cursor: default; display: inline-block;">BufferGeometry</span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">UUID</span><input class="Input" autocomplete="off" disabled="" style="padding: 2px; border: 1px solid transparent; width: 102px; font-size: 12px; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""><button class="Button" style="margin-left: 7px;">New</button></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Name</span><input class="Input" autocomplete="off" style="padding: 2px; border: 1px solid transparent; width: 150px; font-size: 12px; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></div><span><div style="margin-left: 120px;"><div class="Row"><button class="Button">Compute Vertex Normals</button></div><div class="Row"><button class="Button">Compute Tangents</button></div><div class="Row"><button class="Button">Center</button></div></div></span><div class="Row" style="display: none;"><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Attributes</span><span style="display: inline-block; vertical-align: middle; width: 160px;"><span class="Text" style="cursor: default; display: inline-block; width: 80px;">index</span><span class="Text" style="cursor: default; display: inline-block; font-size: 12px;">1,356</span><br class="Break"><span class="Text" style="cursor: default; display: inline-block; width: 80px;">normal</span><span class="Text" style="cursor: default; display: inline-block; font-size: 12px;">581 (3)</span><br class="Break"><span class="Text" style="cursor: default; display: inline-block; width: 80px;">position</span><span class="Text" style="cursor: default; display: inline-block; font-size: 12px;">581 (3)</span><br class="Break"><span class="Text" style="cursor: default; display: inline-block; width: 80px;">tangent</span><span class="Text" style="cursor: default; display: inline-block; font-size: 12px;">581 (4)</span><br class="Break"><span class="Text" style="cursor: default; display: inline-block; width: 80px;">uv</span><span class="Text" style="cursor: default; display: inline-block; font-size: 12px;">581 (2)</span><br class="Break"></span></div></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Bounds</span><span class="Text" style="cursor: default; display: inline-block; font-size: 12px;">4.733<br>1.371<br>4.733</span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">User Data</span><textarea class="TextArea" spellcheck="false" autocomplete="off" style="padding: 2px; width: 150px; height: 40px; font-size: 12px;"></textarea></div><div class="Row" style="margin-left: 120px;"><button class="Button">Show Vertex Normals</button></div><button class="Button" style="margin-left: 120px;">Export JSON</button></div></div><div id="materialTab" style="display: none;"><div class="Panel" style="border-top: 0px; padding-top: 20px; --darkreader-inline-border-top: 0px; display: none;" data-darkreader-inline-border-top=""><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Slot</span><select class="Select" autocomplete="off" style="padding: 2px; width: 170px; font-size: 12px;"><option value="0"></option></select></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Type</span><select class="Select" autocomplete="off" style="padding: 2px; width: 150px; font-size: 12px;"><option value="MeshBasicMaterial">MeshBasicMaterial</option><option value="MeshDepthMaterial">MeshDepthMaterial</option><option value="MeshNormalMaterial">MeshNormalMaterial</option><option value="MeshLambertMaterial">MeshLambertMaterial</option><option value="MeshMatcapMaterial">MeshMatcapMaterial</option><option value="MeshPhongMaterial">MeshPhongMaterial</option><option value="MeshToonMaterial">MeshToonMaterial</option><option value="MeshStandardMaterial">MeshStandardMaterial</option><option value="MeshPhysicalMaterial">MeshPhysicalMaterial</option><option value="RawShaderMaterial">RawShaderMaterial</option><option value="ShaderMaterial">ShaderMaterial</option><option value="ShadowMaterial">ShadowMaterial</option></select></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">UUID</span><input class="Input" autocomplete="off" disabled="" style="padding: 2px; border: 1px solid transparent; width: 102px; font-size: 12px; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""><button class="Button" style="margin-left: 7px;">New</button></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Name</span><input class="Input" autocomplete="off" style="padding: 2px; border: 1px solid transparent; width: 150px; font-size: 12px; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Program</span><button class="Button" style="margin-right: 4px;">Info</button><button class="Button" style="margin-right: 4px;">Vert</button><button class="Button" style="margin-right: 4px;">Frag</button></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Color</span><input class="Color" autocomplete="off" type="color" style="width: 32px; height: 16px; border: 0px; padding: 2px; background-color: transparent; --darkreader-inline-border-top: 0px; --darkreader-inline-border-right: 0px; --darkreader-inline-border-bottom: 0px; --darkreader-inline-border-left: 0px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Specular</span><input class="Color" autocomplete="off" type="color" style="width: 32px; height: 16px; border: 0px; padding: 2px; background-color: transparent; --darkreader-inline-border-top: 0px; --darkreader-inline-border-right: 0px; --darkreader-inline-border-bottom: 0px; --darkreader-inline-border-left: 0px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Shininess</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Emissive</span><input class="Color" autocomplete="off" type="color" style="width: 32px; height: 16px; border: 0px; padding: 2px; background-color: transparent; --darkreader-inline-border-top: 0px; --darkreader-inline-border-right: 0px; --darkreader-inline-border-bottom: 0px; --darkreader-inline-border-left: 0px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 30px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Reflectivity</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">IOR</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Roughness</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Metalness</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Clearcoat</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Clearcoat Roughness</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Dispersion</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Iridescence</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Thin-Film IOR</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Thin-Film Thickness</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Sheen</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Sheen Roughness</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Sheen Color</span><input class="Color" autocomplete="off" type="color" style="width: 32px; height: 16px; border: 0px; padding: 2px; background-color: transparent; --darkreader-inline-border-top: 0px; --darkreader-inline-border-right: 0px; --darkreader-inline-border-bottom: 0px; --darkreader-inline-border-left: 0px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Transmission</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Attenuation Distance</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Attenuation Color</span><input class="Color" autocomplete="off" type="color" style="width: 32px; height: 16px; border: 0px; padding: 2px; background-color: transparent; --darkreader-inline-border-top: 0px; --darkreader-inline-border-right: 0px; --darkreader-inline-border-bottom: 0px; --darkreader-inline-border-left: 0px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Thickness</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Vertex Colors</span><input class="Checkbox" type="checkbox" style="left: 100px;"></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Depth Packing</span><select class="Select" autocomplete="off" style="padding: 2px;"><option value="3200">Basic</option><option value="3201">RGBA</option></select></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Specular Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Emissive Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;" disabled=""><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Matcap</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Alpha Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;" disabled=""><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Bump Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;" disabled=""><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 30px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Normal Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 30px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 30px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Clearcoat Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Clearcoat Normal Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 30px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 30px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Clearcoat Roughness Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Displace Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;" disabled=""><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 30px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Rough. Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Metal. Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Irid. Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Sheen Color Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Sheen Rough. Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Thin-Film Thickness Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span><div style="margin-left: 3px;"><div class="Row" style="margin-bottom: 0px; min-height: 0px;"><span class="Text" style="cursor: default; display: inline-block; width: 35px;">min:</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 40px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="margin-bottom: 6px; min-height: 0px;"><span class="Text" style="cursor: default; display: inline-block; width: 35px;">max:</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 40px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div></div></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Env Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;" disabled=""><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Light Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;" disabled=""><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">AO Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 30px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Gradient Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Transmission Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Thickness Map</span><input class="Checkbox" type="checkbox" style="margin-right: 8px;"><span><canvas width="32" height="16" style="cursor: pointer; margin-right: 5px; border: 1px solid rgb(136, 136, 136); --darkreader-inline-border-top: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-right: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-bottom: var(--darkreader-border-888888, #52585c); --darkreader-inline-border-left: var(--darkreader-border-888888, #52585c);" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="empty"></canvas></span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Side</span><select class="Select" autocomplete="off" style="padding: 2px;"><option value="0">Front</option><option value="1">Back</option><option value="2">Double</option></select></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Size</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row" style="display: none;"><span class="Label" style="cursor: default; display: inline-block;">Size Attenuation</span><input class="Checkbox" type="checkbox" style="left: 100px;"></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Flat Shading</span><input class="Checkbox" type="checkbox" style="left: 100px;"></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Blending</span><select class="Select" autocomplete="off" style="padding: 2px;"><option value="0">No</option><option value="1">Normal</option><option value="2">Additive</option><option value="3">Subtractive</option><option value="4">Multiply</option><option value="5">Custom</option></select></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Opacity</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Transparent</span><input class="Checkbox" type="checkbox" style="left: 100px;"></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Force Single Pass</span><input class="Checkbox" type="checkbox" style="left: 100px;"></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Alpha Test</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; width: 60px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Depth Test</span><input class="Checkbox" type="checkbox" style="left: 100px;"></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Depth Write</span><input class="Checkbox" type="checkbox" style="left: 100px;"></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Wireframe</span><input class="Checkbox" type="checkbox" style="left: 100px;"></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">User data</span><textarea class="TextArea" spellcheck="false" autocomplete="off" style="padding: 2px; width: 150px; height: 40px; font-size: 12px; border-color: transparent; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></textarea></div><button class="Button" style="margin-left: 120px;">Export JSON</button></div></div><div id="scriptTab" style="display: none;"><div class="Panel" style="border-top: 0px; padding-top: 20px; display: block; --darkreader-inline-border-top: 0px;" data-darkreader-inline-border-top=""><div class="Row" style="display: none;"></div><button class="Button">New</button></div></div></div></div></span></div><div id="project" style="display: none;"><span><div class="Panel" style="border-top: 0px; --darkreader-inline-border-top: 0px;" data-darkreader-inline-border-top=""><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Antialias</span><span style="margin-right: 4px;"><input class="Checkbox" type="checkbox"><span class="Text" style="cursor: default; display: inline-block; margin-left: 3px;"></span></span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Shadows</span><span style="margin-right: 4px;"><input class="Checkbox" type="checkbox"><span class="Text" style="cursor: default; display: inline-block; margin-left: 3px;"></span></span><select class="Select" autocomplete="off" style="padding: 2px; width: 125px;"><option value="0">Basic</option><option value="1">PCF</option><option value="2">PCF Soft</option></select></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Tonemapping</span><select class="Select" autocomplete="off" style="padding: 2px; width: 120px;"><option value="0">No</option><option value="1">Linear</option><option value="2">Reinhard</option><option value="3">Cineon</option><option value="4">ACESFilmic</option><option value="6">AgX</option><option value="7">Neutral</option></select><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; display: none; width: 30px; margin-left: 10px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div></div><div class="Panel" id="app"><div class="Row"><span class="Text" style="cursor: default; display: inline-block;">APP</span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Title</span><input class="Input" autocomplete="off" style="padding: 2px; border: 1px solid transparent; left: 100px; width: 150px; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Editable</span><input class="Checkbox" type="checkbox" style="left: 100px;"></div><button class="Button" style="width: 170px; margin-left: 120px; margin-bottom: 10px;">Play</button><button class="Button" style="width: 170px; margin-left: 120px; margin-bottom: 10px;">Publish</button></div><div class="Panel" id="render"><span class="Text" style="cursor: default; display: inline-block; text-transform: uppercase;">Image</span><br class="Break"><br class="Break"><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Shading</span><select class="Select" autocomplete="off" style="padding: 2px; width: 170px;"><option value="solid">SOLID</option><option value="realistic">REALISTIC</option></select></div><div class="Row" hidden=""><span class="Label" style="cursor: default; display: inline-block;">Samples</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Resolution</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; text-align: center; width: 28px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><span class="Text" style="cursor: default; display: inline-block; text-align: center; font-size: 12px; width: 12px;">×</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; text-align: center; width: 28px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><button class="Button" style="width: 170px; margin-left: 120px;">Render</button></div><div class="Panel" id="render"><span class="Text" style="cursor: default; display: inline-block; text-transform: uppercase;">Video</span><br class="Break"><br class="Break"><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Resolution</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; text-align: center; width: 28px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><span class="Text" style="cursor: default; display: inline-block; text-align: center; font-size: 12px; width: 12px;">×</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; text-align: center; width: 28px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; text-align: center; width: 20px; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""><span class="Text" style="cursor: default; display: inline-block; font-size: 12px;">fps</span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Duration</span><input class="Number" autocomplete="off" style="cursor: ns-resize; background-color: transparent; --darkreader-inline-bgcolor: transparent;" data-darkreader-inline-bgcolor=""></div><button class="Button" style="width: 170px; margin-left: 120px;">Render</button></div></span></div><div id="settings" style="display: none;"><span><div class="Panel" style="border-top: 0px; padding-top: 20px; --darkreader-inline-border-top: 0px;" data-darkreader-inline-border-top=""><div class="Row"><span class="Label" style="cursor: default; display: inline-block;">Language</span><select class="Select" autocomplete="off" style="padding: 2px; width: 150px;"><option value="en">English</option><option value="fr">français</option><option value="zh">中文</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="fa">فارسی</option></select></div></div><div class="Panel"><div class="Row"><span class="Text" style="cursor: default; display: inline-block;">SHORTCUTS</span></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block; text-transform: capitalize;">Translate</span><input class="Input" autocomplete="off" maxlength="1" style="padding: 2px; border: 1px solid transparent; width: 15px; font-size: 12px; text-align: center; text-transform: lowercase; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block; text-transform: capitalize;">Rotate</span><input class="Input" autocomplete="off" maxlength="1" style="padding: 2px; border: 1px solid transparent; width: 15px; font-size: 12px; text-align: center; text-transform: lowercase; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block; text-transform: capitalize;">Scale</span><input class="Input" autocomplete="off" maxlength="1" style="padding: 2px; border: 1px solid transparent; width: 15px; font-size: 12px; text-align: center; text-transform: lowercase; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block; text-transform: capitalize;">Undo</span><input class="Input" autocomplete="off" maxlength="1" style="padding: 2px; border: 1px solid transparent; width: 15px; font-size: 12px; text-align: center; text-transform: lowercase; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></div><div class="Row"><span class="Label" style="cursor: default; display: inline-block; text-transform: capitalize;">Focus</span><input class="Input" autocomplete="off" maxlength="1" style="padding: 2px; border: 1px solid transparent; width: 15px; font-size: 12px; text-align: center; text-transform: lowercase; --darkreader-inline-border-top: transparent; --darkreader-inline-border-right: transparent; --darkreader-inline-border-bottom: transparent; --darkreader-inline-border-left: transparent;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></div></div><div class="Panel"><span class="Text" style="cursor: default; display: inline-block;">HISTORY</span><span style="margin-right: 4px; position: absolute; right: 8px;"><input class="Checkbox" type="checkbox"><span class="Text" style="cursor: default; display: inline-block; margin-left: 3px;">Persistent</span></span><br class="Break"><br class="Break"><div class="Outliner" tabindex="0"><div class="option">&nbsp;Remove Object: defaultMaterial_1</div><div class="option">&nbsp;Remove Object: defaultMaterial</div><div class="option">&nbsp;Add Object: roundtable.glb</div><div class="option">&nbsp;Add Object: AmbientLight</div><div class="option active">&nbsp;Set Value: intensity</div></div><br class="Break"><button class="Button">Clear</button></div></span></div></div></div><form style="display: none;"><input type="file" accept=".json"></form><form style="display: none;"><input multiple="" type="file"></form><div class="Panel" id="menubar"><div class="menu"><div class="title">File</div><div class="options"><div class="Row option submenu-title">New<div class="Panel options" style="position: fixed; display: none; left: 150px; top: 32px;"><div class="option">Empty</div><hr class="HorizontalRule"><div class="option">Arkanoid</div><div class="option">Camera</div><div class="option">Particles</div><div class="option">Pong</div><div class="option">Shaders</div></div></div><div class="Row option">Open</div><div class="Row option">Save</div><hr class="HorizontalRule"><div class="option">Import</div><div class="Row option submenu-title">Export<div class="Panel options" style="position: fixed; display: none;"><div class="option">DRC</div><div class="option">GLB</div><div class="option">GLTF</div><div class="option">OBJ</div><div class="option">PLY</div><div class="option">PLY (BINARY)</div><div class="option">STL</div><div class="option">STL (BINARY)</div><div class="option">USDZ</div></div></div></div></div><div class="menu"><div class="title">Edit</div><div class="options"><div class="option">Undo<span class="key" style="cursor: default; display: inline-block;">CTRL+Z</span></div><div class="inactive">Redo<span class="key" style="cursor: default; display: inline-block;">CTRL+SHIFT+Z</span></div><hr class="HorizontalRule"><div class="option">Center</div><div class="option">Clone</div><div class="option">Delete<span class="key" style="cursor: default; display: inline-block;">DEL</span></div></div></div><div class="menu"><div class="title">Add</div><div class="options"><div class="option">Group</div><div class="Row option submenu-title">Mesh<div class="Panel options" style="position: fixed; display: none; left: 244.688px; top: 58px; max-height: calc(-63px + 100vh);"><div class="option">Box</div><div class="option">Capsule</div><div class="option">Circle</div><div class="option">Cylinder</div><div class="option">Dodecahedron</div><div class="option">Icosahedron</div><div class="option">Lathe</div><div class="option">Octahedron</div><div class="option">Plane</div><div class="option">Ring</div><div class="option">Sphere</div><div class="option">Sprite</div><div class="option">Tetrahedron</div><div class="option">Torus</div><div class="option">TorusKnot</div><div class="option">Tube</div></div></div><div class="Row option submenu-title">Light<div class="Panel options" style="position: fixed; display: none; left: 244.688px; top: 84px; max-height: calc(-89px + 100vh);"><div class="option">Ambient</div><div class="option">Directional</div><div class="option">Hemisphere</div><div class="option">Point</div><div class="option">Spot</div></div></div><div class="Row option submenu-title">Camera<div class="Panel options" style="position: fixed; display: none;"><div class="option">Orthographic</div><div class="option">Perspective</div></div></div></div></div><div class="menu"><div class="title">View</div><div class="options"><div class="Row option toggle toggle-on">Grid Helper</div><div class="Row option toggle toggle-on">Camera Helpers</div><div class="Row option toggle toggle-on">Light Helpers</div><div class="Row option toggle toggle-on">Skeleton Helpers</div><hr class="HorizontalRule"><div class="option">Fullscreen</div></div></div><div class="menu"><div class="title">Help</div><div class="options"><div class="option">Source Code</div><div class="option">About</div><div class="option">Manual</div></div></div><div class="menu right"><span style="margin-right: 4px;"><input class="Checkbox" type="checkbox"><span class="Text" style="cursor: default; display: inline-block; margin-left: 3px; color: rgb(136, 136, 136); --darkreader-inline-color: var(--darkreader-text-888888, #9d9488); text-decoration: none;" data-darkreader-inline-color="">autosave</span></span><span class="title" style="cursor: default; display: inline-block; opacity: 0.5;">r175</span></div></div><div id="resizer"></div></body></html>
