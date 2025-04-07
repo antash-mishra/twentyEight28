@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
+import { cardsPromise } from './cards'
 
 // Sizes
 const sizes = {
@@ -79,23 +80,30 @@ sphere.castShadow = true;
 // scene.add(sphere);
 
 // Load model
-gltfLoader.load('./assets/scene.glb', (gltf) => {
-    const model = gltf.scene;
-    const box = new THREE.Box3().setFromObject(gltf.scene);
-    console.log('Table bounds:', box.min, box.max);
-    
-    // Check all meshes within the model and their positions
-    gltf.scene.traverse(function(child) {
-      if (child.isMesh) {
-        console.log('Mesh found:', child.name, 'at position:', child.position);
-      }
-    });
+// gltfLoader.load('./assets/kitchen_table.glb', (gltf) => {
+//     const model = gltf.scene;
   
-    scene.add(model);
+//     scene.add(model);
+ 
+//     model.rotateY(Math.PI / 2)
+//     model.scale.set(0.35, 0.35, 0.35)
+//     model.position.set(0.25, 0, 0)
 
-});
+//     model.traverse(function(node) {
+//         if (node.isMesh) {
+//             node.receiveShadow = true;
+//         }
+//     })
+// });
 
-//
+// Load cards
+
+async function initScene() {
+    let x = false;
+    const card = await cardsPromise;
+
+    scene.add(card)
+}
 
 const clock = new THREE.Clock()
 
@@ -111,3 +119,4 @@ const tick = () => {
 }
     
     tick()
+    initScene();
