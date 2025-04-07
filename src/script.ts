@@ -100,9 +100,15 @@ sphere.castShadow = true;
 
 async function initScene() {
     let x = false;
-    const card = await cardsPromise;
-
-    scene.add(card)
+    const cards = await cardsPromise;
+    
+    cards.forEach(card => {
+        // Add cards to your scene
+        if (!x) {
+          x = true;
+          scene.add(card);
+        }
+    });    
 }
 
 const clock = new THREE.Clock()

@@ -6,61 +6,88 @@ let cardBackTexture: THREE.Texture;
 let cards: THREE.Group[] = []
 
 // Spritesheet config
-const cardScale: number = 2;
 const numColumnsFront: number = 13;
 const numRowsFront: number = 4;
-// Calculate UV dimensions
-const cardWidthUVFront = 1 / numColumnsFront;
-const cardHeightUVFront = 1 / numRowsFront;
 
-
-const createCard = (frontIndex, backIndex) => {
+const createCards = () => {
     console.log("Creating cards...");
     
     if (!cardFrontTexture || !cardBackTexture) {
         console.log("Card front texture not loaded yet.");
         return;
     }
+
+    console.log("Texture: ", cardFrontTexture, cardBackTexture);
+
+    // Card geometry
+    const geometry: THREE.PlaneGeometry = new THREE.PlaneGeometry(0.7, 1)
+
+    const cols = 13;
+    const rows = 4;
+
+    for (let suit=0; suit < 4; suit++) {
+        for (let value=0; value < 13; value++) {
+            // Calculate UV coordinates for this card in the texture atlas
+            const uMin = value / cols;
+            const uMax = (value + 1) / cols;
+            const vMin = suit / rows;
+            const vMax = (suit + 1) / rows;
             
-    // Create materials for front and back
-    const frontMaterial: THREE.SpriteMaterial = new THREE.SpriteMaterial({ 
-      map: cardFrontTexture
-    });
-    const frontSprite = new THREE.Sprite(frontMaterial);
+            // Clone the geometry and modify UV coordinates to point to correct card in atlas
+            const frontGeometry = geometry.clone();
+            const uvs = frontGeometry.attributes.uv.array;
+            
+            // Bottom left
+            uvs[0] = uMin;
+            uvs[1] = vMin;
+            
+            // Bottom right
+            uvs[2] = uMax;
+            uvs[3] = vMin;
+            
+            // Top left
+            uvs[4] = uMin;
+            uvs[5] = vMax;
+            
+            // Top right
+            uvs[6] = uMax;
+            uvs[7] = vMax;
+            
+            // Create materials for front and back
+            const frontMaterial = new THREE.MeshBasicMaterial({ 
+              map: cardFrontTexture,
+              side: THREE.FrontSide
+            });
 
-    // Calculate UV offset for the specific card front
-    const frontRow = Math.floor(frontIndex / numColumnsFront); // Assuming you know numColumnsFront
-    const frontCol = frontIndex % numColumnsFront;
-    frontMaterial.map?.offset.set(frontCol * cardWidthUVFront, 1 - (frontRow + 1) * cardHeightUVFront);
-    frontMaterial.map?.repeat.set(cardWidthUVFront, cardHeightUVFront);
+            const backMaterial = new THREE.MeshBasicMaterial({ 
+                map: cardBackTexture,
+                side: THREE.BackSide
+            });
 
-    const backMaterial = new THREE.SpriteMaterial({ 
-        map: cardBackTexture
-    });
-    const backSprite = new THREE.Sprite(backMaterial);
+            const cardGroup = new THREE.Group();
 
-    const card = new THREE.Group();
-    card.add(frontSprite);
-    card.add(backSprite);
-    
-    // Initially show the back of the card
-    frontSprite.visible = false;
-    backSprite.visible = true;
+            // Create front and back meshes
+            const frontMesh = new THREE.Mesh(frontGeometry, frontMaterial);
+            frontMesh.castShadow = true;
+            
+            // Back side (using same geometry but different material)
+            const backGeometry = geometry.clone();
+            const backMesh = new THREE.Mesh(backGeometry, backMaterial);
+            backMesh.castShadow = true;
+            
+            // Add both meshes to the group
+            cardGroup.add(frontMesh);
+            cardGroup.add(backMesh);
+            
+            // Store card data
+            cardGroup.userData = {
+                suit: suit,
+                value: value
+            };
 
-    card.userData = {
-        frontIndex: frontIndex,
-        backIndex: backIndex
+            cards.push(cardGroup);
+        }
     }
-
-    // You might want to scale the sprites to your desired card size
-    const aspectRatioFront = frontMaterial.map?.image.width / numColumnsFront / (frontMaterial.map?.image.height / numRowsFront);
-    frontSprite.scale.set(cardScale * aspectRatioFront, cardScale, 1);
-
-    const aspectRatioBack = backMaterial.map?.image.width / (backMaterial.map?.image.height);
-    backSprite.scale.set(cardScale * aspectRatioBack, cardScale, 1);
-
-
-    return card
 }
 
 
@@ -103,8 +130,8 @@ const backCardPromise = new Promise<THREE.Texture>((resolve) => {
 // Call create cards when front and back card textures are loaded
 const cardsPromise = Promise.all([frontCardPromise, backCardPromise])
     .then(() => {
-        const card = createCard(0, 0);
-        return card;
+        createCards();
+        return cards;
     })
     .catch(error => {
         console.error("Failed to load card textures:", error);
@@ -112,5 +139,9 @@ const cardsPromise = Promise.all([frontCardPromise, backCardPromise])
     });
 
 export { cardsPromise };
+
+
+
+
 
 
