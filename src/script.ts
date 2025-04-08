@@ -1,7 +1,8 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
-import { cardsPromise } from './cards'
+import { cardsPromise } from './card'
+import gsap from 'gsap';
 
 // Sizes
 const sizes = {
@@ -23,13 +24,19 @@ window.addEventListener('resize', () => {
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 });
-    
 
 // Scene
 const scene = new THREE.Scene()
 
 // Loaders
 const gltfLoader = new GLTFLoader()
+
+// 
+let hoveredCard;
+let cards, opponentCards
+const mousePosition = new THREE.Vector2();
+const rayCaster = new THREE.Raycaster();
+
 
 // renderer
 const renderer = new THREE.WebGLRenderer({
@@ -39,14 +46,14 @@ renderer.setClearColor(0xFEFEFE);
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(sizes.pixelRatio)
 renderer.shadowMap.enabled = true
-renderer.shadowMap.type = THREE.PCFSoftShadowMap
+renderer.shadowMap.type = THREE.PCFSoftShadowMap 
 renderer.toneMapping = THREE.ACESFilmicToneMapping
 document.body.appendChild(renderer.domElement)
 
 // Camera
 const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 1000)
 camera.position.set(0,10,6)
-camera.lookAt(0,6,2)
+camera.lookAt(new THREE.Vector3(0,6,2))
 scene.add(camera)
 
 // Lights
@@ -80,36 +87,70 @@ sphere.castShadow = true;
 // scene.add(sphere);
 
 // Load model
-// gltfLoader.load('./assets/kitchen_table.glb', (gltf) => {
-//     const model = gltf.scene;
+gltfLoader.load('./assets/kitchen_table.glb', (gltf) => {
+    const model = gltf.scene;
   
-//     scene.add(model);
- 
-//     model.rotateY(Math.PI / 2)
-//     model.scale.set(0.35, 0.35, 0.35)
-//     model.position.set(0.25, 0, 0)
+    scene.add(model);
+    
+    model.rotateY(Math.PI / 2)
+    model.scale.set(0.25, 0.25, 0.25)
+    model.position.set(0.25, 0, 0)   
 
-//     model.traverse(function(node) {
-//         if (node.isMesh) {
-//             node.receiveShadow = true;
-//         }
-//     })
-// });
+    model.traverse(function(node) {
+        if (node.isMesh) {
+            node.receiveShadow = true;
+        }
+    })
+});
 
 // Load cards
-
 async function initScene() {
-    let x = false;
-    const cards = await cardsPromise;
+    [cards, opponentCards] = await cardsPromise;
     
     cards.forEach(card => {
         // Add cards to your scene
-        if (!x) {
-          x = true;
-          scene.add(card);
-        }
+        scene.add(card);
     });    
+    opponentCards.forEach(card => {
+        scene.add(card);
+    })
 }
+
+// CLick event to move the card
+window.addEventListener('click', function(e) {
+    mousePosition.x = (e.clientX / window.innerWidth) * 2 -1;
+    mousePosition.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    
+    rayCaster.setFromCamera(mousePosition, camera);
+    const intersects = rayCaster.intersectObjects(cards);
+    console.log(intersects)
+
+    if(intersects.length > 0) {
+        const clickedCard= intersects[0].object.parent;
+        if(clickedCard.name === "hand playerCard") {
+            hoveredCard = clickedCard;
+            clickedCard.name = hoveredCard.name.replace('hand ', '')
+        }
+    }
+
+    if (hoveredCard) {
+        const tl = gsap.timeline({
+            defaults: {duration: 0.4, delay: 0.1}
+        });
+
+        tl.to(hoveredCard.children[0].material, {
+            rotation: 0
+        })
+
+        tl.to(hoveredCard.position, {
+            y:3.18,
+            z:0.9
+        }, 0);
+        let hoveredCName = hoveredCard.name;
+        hoveredCard = null;
+
+    }
+})
 
 const clock = new THREE.Clock()
 
